@@ -957,7 +957,7 @@ MonoBehaviour:
   player: {fileID: 1606086293}
   menuItem: {fileID: 5515456366194181842, guid: ba837a1e57eaef745a4b90c3f774cb97,
     type: 3}
-  indicator: {fileID: 0}
+  indicator: {fileID: 510292021}
   indpos: {x: 0, y: 0}
   currentIndex: 0
   minRenderedIndex: 0

@@ -32,6 +32,7 @@ public class HealthSystem
     {
         health += amount;
         if (health > healthMax) health = healthMax;
+        if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
 
     }
 }

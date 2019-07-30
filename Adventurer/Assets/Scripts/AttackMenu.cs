@@ -7,6 +7,8 @@ public class AttackMenu : MonoBehaviour
 {
     public GameObject player;
     public GameObject menuItem;
+    public GameObject indicator;
+    public Vector2Int indpos = new Vector2Int();
     public int currentIndex;
     public int minRenderedIndex;
     public int maxRenderedIndex;
@@ -17,6 +19,7 @@ public class AttackMenu : MonoBehaviour
     {
         currentIndex = 0;
         currentSkill = player.GetComponent<BattleTestPlayer>().skills[currentIndex];
+        MoveIndicator(new Vector2Int(currentIndex%2, (currentIndex - minRenderedIndex)/2));
         RenderMenuItems(currentIndex);
     }
 
@@ -28,32 +31,49 @@ public class AttackMenu : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.UpArrow) && currentIndex - 2 >= 0)
             {
                 currentIndex -= 2;
-                currentSkill = player.GetComponent<BattleTestPlayer>().skills[currentIndex];
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) && currentIndex % 2 == 0 && currentIndex + 1 < player.GetComponent<BattleTestPlayer>().skills.Count)
             {
                 currentIndex += 1;
-                currentSkill = player.GetComponent<BattleTestPlayer>().skills[currentIndex];
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) && currentIndex + 2 < player.GetComponent<BattleTestPlayer>().skills.Count)
             {
                 currentIndex += 2;
-                currentSkill = player.GetComponent<BattleTestPlayer>().skills[currentIndex];
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) && currentIndex % 2 == 1)
             {
                 currentIndex -= 1;
-                currentSkill = player.GetComponent<BattleTestPlayer>().skills[currentIndex];
             }
+
+            currentSkill = player.GetComponent<BattleTestPlayer>().skills[currentIndex];
 
             if (currentIndex > maxRenderedIndex)
             {
-                RenderMenuItems(currentIndex - 2);
+                if(currentIndex%2 == 0)
+                {
+                    RenderMenuItems(currentIndex - 2);
+                }
+                else if(currentIndex %2 == 1)
+                {
+                    RenderMenuItems(currentIndex - 3);
+                }
             }
             else if(currentIndex < minRenderedIndex)
             {
-                RenderMenuItems(currentIndex);
+                if (currentIndex % 2 == 0)
+                {
+                    RenderMenuItems(currentIndex);
+                }
+                else if (currentIndex % 2 == 1)
+                {
+                    RenderMenuItems(currentIndex - 1);
+                }
             }
+
+            indpos.x = currentIndex % 2;
+            indpos.y = (currentIndex - minRenderedIndex) / 2;
+
+            MoveIndicator(indpos);
         }
     }
 
@@ -61,11 +81,15 @@ public class AttackMenu : MonoBehaviour
     {
         foreach (Transform child in gameObject.transform)
         {
-            GameObject.Destroy(child.gameObject);
+            if(child.gameObject.CompareTag("MenuItem"))
+            {
+                GameObject.Destroy(child.gameObject);
+            }
         }
         int curIndex = index;
         float xcoord = gameObject.transform.position.x - 300;
         float ycoord = gameObject.transform.position.y + 27.5f;
+        int renderedItems = 0;
         for (int i = curIndex; i < curIndex + 4; i++)
         {
             if (i < player.GetComponent<BattleTestPlayer>().skills.Count)
@@ -81,9 +105,15 @@ public class AttackMenu : MonoBehaviour
                     skill.transform.GetChild(0).GetComponent<Text>().text = player.GetComponent<BattleTestPlayer>().skills[i].name;
                     ycoord -= 55;
                 }
+                renderedItems++;
             }
         }
         minRenderedIndex = index;
-        maxRenderedIndex = index + 3;
+        maxRenderedIndex = index + renderedItems - 1;
+    }
+
+    public void MoveIndicator(Vector2Int pos)
+    {
+        indicator.transform.position = new Vector3(gameObject.transform.position.x - 300 + pos.x * 200, gameObject.transform.position.y + 27.5f - pos.y * 55);
     }
 }

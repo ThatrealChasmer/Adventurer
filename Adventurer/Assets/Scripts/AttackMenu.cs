@@ -46,7 +46,11 @@ public class AttackMenu : MonoBehaviour
                 currentSkill = player.GetComponent<BattleTestPlayer>().skills[currentIndex];
             }
 
-            if (currentIndex > maxRenderedIndex || currentIndex < minRenderedIndex)
+            if (currentIndex > maxRenderedIndex)
+            {
+                RenderMenuItems(currentIndex - 2);
+            }
+            else if(currentIndex < minRenderedIndex)
             {
                 RenderMenuItems(currentIndex);
             }
@@ -64,16 +68,19 @@ public class AttackMenu : MonoBehaviour
         float ycoord = gameObject.transform.position.y + 27.5f;
         for (int i = curIndex; i < curIndex + 4; i++)
         {
-            if (i % 2 == 0)
+            if (i < player.GetComponent<BattleTestPlayer>().skills.Count)
             {
-                GameObject skill = Instantiate(menuItem, new Vector3(xcoord, ycoord, 0), Quaternion.identity, gameObject.transform);
-                skill.transform.GetChild(0).GetComponent<Text>().text = player.GetComponent<BattleTestPlayer>().skills[i].name;
-            }
-            else
-            {
-                GameObject skill = Instantiate(menuItem, new Vector3(xcoord + 200, ycoord, 0), Quaternion.identity, gameObject.transform);
-                skill.transform.GetChild(0).GetComponent<Text>().text = player.GetComponent<BattleTestPlayer>().skills[i].name;
-                ycoord -= 55;
+                if (i % 2 == 0)
+                {
+                    GameObject skill = Instantiate(menuItem, new Vector3(xcoord, ycoord, 0), Quaternion.identity, gameObject.transform);
+                    skill.transform.GetChild(0).GetComponent<Text>().text = player.GetComponent<BattleTestPlayer>().skills[i].name;
+                }
+                else
+                {
+                    GameObject skill = Instantiate(menuItem, new Vector3(xcoord + 200, ycoord, 0), Quaternion.identity, gameObject.transform);
+                    skill.transform.GetChild(0).GetComponent<Text>().text = player.GetComponent<BattleTestPlayer>().skills[i].name;
+                    ycoord -= 55;
+                }
             }
         }
         minRenderedIndex = index;

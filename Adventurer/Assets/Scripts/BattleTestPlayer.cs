@@ -30,7 +30,7 @@ public class BattleTestPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        skills.Add(new Skill("Attack1", 0.1f, 0));
+        skills.Add(new Skill("TestAttack1", 0.1f, 0));
         skills.Add(new Skill("Attack2", 0.2f, 5));
         skills.Add(new Skill("Attack3", 0.3f, 10));
         skills.Add(new Skill("Attack4", 0.4f, 15));

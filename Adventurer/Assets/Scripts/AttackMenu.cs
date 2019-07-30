@@ -78,7 +78,8 @@ public class AttackMenu : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Return))
         {
-
+            Attacks k = player.GetComponent<Attacks>();
+            k.Invoke(currentSkill.name, 0);
         }
     }
 

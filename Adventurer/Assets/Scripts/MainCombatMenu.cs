@@ -7,29 +7,23 @@ public class MainCombatMenu : MonoBehaviour
     static MainCombatMenu instance;
     public GameObject indicator;
     public Vector3 indpos;
-    public List<List<Category>> lists = new List<List<Category>>();
-    public List<Category> LeftCategories = new List<Category>();
-    public List<Category> RightCategories = new List<Category>();
-    public Category pickedOption;
+    public List<List<MenuController.Category>> lists = new List<List<MenuController.Category>>();
+    public List<MenuController.Category> LeftCategories = new List<MenuController.Category>();
+    public List<MenuController.Category> RightCategories = new List<MenuController.Category>();
+    public MenuController.Category pickedOption;
     public int currentList;
     public int currentIndex;
-
-    public enum Category{
-        Attack,
-        Spells,
-        Items,
-        Run
-    }
+    public GameObject menuController;
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
         indicator = this.gameObject;
         indpos = indicator.transform.position;
-        LeftCategories.Add(Category.Attack);
-        LeftCategories.Add(Category.Items);
-        RightCategories.Add(Category.Spells);
-        RightCategories.Add(Category.Run);
+        LeftCategories.Add(MenuController.Category.Attack);
+        LeftCategories.Add(MenuController.Category.Items);
+        RightCategories.Add(MenuController.Category.Spells);
+        RightCategories.Add(MenuController.Category.Run);
         lists.Add(LeftCategories);
         lists.Add(RightCategories);
         currentList = 0;
@@ -60,6 +54,10 @@ public class MainCombatMenu : MonoBehaviour
             }
             pickedOption = lists[currentList][currentIndex];
             MoveIndicator(currentList, currentIndex);
+        }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            menuController.GetComponent<MenuController>().ChangeMenu(pickedOption);
         }
     }
 

@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Enemy
+=======
+>>>>>>> 5034b23af7a8844303ae6dd6f65a25a33da6878a
   - MenuItem
   layers:
   - Default

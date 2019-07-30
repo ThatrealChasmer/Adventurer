@@ -75,6 +75,11 @@ public class AttackMenu : MonoBehaviour
 
             MoveIndicator(indpos);
         }
+
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+
+        }
     }
 
     public void RenderMenuItems(int index)

@@ -13,6 +13,7 @@ public class AttackMenu : MonoBehaviour
     public int minRenderedIndex;
     public int maxRenderedIndex;
     public BattleTestPlayer.Skill currentSkill;
+    public TurnSystem turn;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class AttackMenu : MonoBehaviour
         currentSkill = player.GetComponent<BattleTestPlayer>().skills[currentIndex];
         MoveIndicator(new Vector2Int(currentIndex%2, (currentIndex - minRenderedIndex)/2));
         RenderMenuItems(currentIndex);
+        turn = GameObject.FindGameObjectWithTag("Box").GetComponent<TurnSystem>();
     }
 
     // Update is called once per frame
@@ -76,7 +78,7 @@ public class AttackMenu : MonoBehaviour
             MoveIndicator(indpos);
         }
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Return) && turn.state == TurnSystem.State.Awaiting)
         {
             Attacks k = player.GetComponent<Attacks>();
             k.Invoke(currentSkill.name, 0);

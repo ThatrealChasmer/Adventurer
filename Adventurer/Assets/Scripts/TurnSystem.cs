@@ -7,26 +7,27 @@ public class TurnSystem : MonoBehaviour
 {
     public enum State
     {
-        Awaiting,
-        Busy,
+        Player,
+        Enemy,
     }
-    public event EventHandler PlayerTurnEnded;
-
+    public event EventHandler PlayerTurnStart;
+    public event EventHandler EnemyTurnStart;
 
     public State state;
     
     void Start()
     {
-        state = State.Awaiting;
+        state = State.Player;
     }
 
     public void EndPlayerTurn()
     {
-        state = State.Busy;
-        if (PlayerTurnEnded != null) PlayerTurnEnded(this, EventArgs.Empty);
+        state = State.Enemy;
+        if (EnemyTurnStart != null) EnemyTurnStart(this, EventArgs.Empty);
     }
     public void EndEnemyTurn()
     {
-        state = State.Awaiting;
+        state = State.Player;
+        if (PlayerTurnStart != null) PlayerTurnStart(this, EventArgs.Empty);
     }
 }

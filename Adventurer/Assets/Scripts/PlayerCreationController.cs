@@ -112,6 +112,8 @@ public class PlayerCreationController : MonoBehaviour
             PlayerStats.playerStats.speed = statValues[4];
             PlayerStats.playerStats.luck = statValues[5];
 
+            PlayerStats.CalculateStats();
+
             SceneManager.LoadScene("TestMenu");
         }
         

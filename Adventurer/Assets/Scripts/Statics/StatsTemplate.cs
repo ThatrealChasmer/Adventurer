@@ -24,9 +24,14 @@ public static class StatsTemplate
         public int speed;
         public int luck;
 
-        public Stats()
+        public Stats(int str, int def, int per, int intel, int spd, int luck)
         {
-
+            this.strength = str;
+            this.defense = def;
+            this.perception = per;
+            this.inteligence = intel;
+            this.speed = spd;
+            this.luck = luck;
         }
     }
 }

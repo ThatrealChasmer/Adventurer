@@ -4,7 +4,54 @@ using UnityEngine;
 
 public static class PlayerStats
 {
-    public static StatsTemplate.Stats playerStats = new StatsTemplate.Stats();
+    public static StatsTemplate.Stats playerStats = new StatsTemplate.Stats(1,1,1,1,1,1);
+
+    public static void TakeDamage(int dmg)
+    {
+        playerStats.currentHealth -= dmg;
+    }
+
+    public static void ChangeStrength(int str)
+    {
+        playerStats.strength += str;
+    }
+
+    public static void ChangeDefense(int def)
+    {
+        playerStats.strength += def;
+    }
+
+    public static void ChangePerception(int per)
+    {
+        playerStats.strength += per;
+    }
+
+    public static void ChangeInteligence(int intel)
+    {
+        playerStats.strength += intel;
+    }
+
+    public static void ChangeSpeed(int spd)
+    {
+        playerStats.strength += spd;
+    }
+
+    public static void ChangeLuck(int luck)
+    {
+        playerStats.strength += luck;
+    }
+
+    public static void CalculateStats()
+    {
+        playerStats.maxHealth = 200 + (5 * playerStats.strength);
+        playerStats.currentHealth = playerStats.maxHealth;
+
+        playerStats.maxStamina = 50 + (playerStats.defense / 10);
+        playerStats.currentStamina = playerStats.maxStamina;
+
+        playerStats.maxMana = 80 + (playerStats.inteligence / 5);
+        playerStats.currentMana = playerStats.maxMana;
+    }
 
     public static void CreateReset()
     {

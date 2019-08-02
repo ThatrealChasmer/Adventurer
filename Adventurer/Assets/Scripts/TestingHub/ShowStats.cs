@@ -13,5 +13,11 @@ public class ShowStats : MonoBehaviour
         Debug.Log("Inteligence: " + PlayerStats.playerStats.inteligence);
         Debug.Log("Speed: " + PlayerStats.playerStats.speed);
         Debug.Log("Luck: " + PlayerStats.playerStats.luck);
+        Debug.Log("Max mana: " + PlayerStats.playerStats.maxMana);
+        Debug.Log("Current mana: " + PlayerStats.playerStats.currentMana);
+        Debug.Log("Max hp: " + PlayerStats.playerStats.maxHealth);
+        Debug.Log("current hp: " + PlayerStats.playerStats.currentHealth);
+        Debug.Log("Max stamina: " + PlayerStats.playerStats.maxStamina);
+        Debug.Log("current stamina: " + PlayerStats.playerStats.currentStamina);
     }
 }

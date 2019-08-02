@@ -1,0 +1,4 @@
+﻿id;name;description;reward;goaltype;goal;target
+0;Quest1;This is TestQuest1;10;Kill;3;Morgle
+1;Quest2;This is TestQuest2;20;Collect;2;Flower
+2;Quest3;This is TestQuest3;30;Kill;3;Damir

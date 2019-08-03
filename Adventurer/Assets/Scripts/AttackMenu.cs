@@ -78,7 +78,7 @@ public class AttackMenu : MonoBehaviour
             MoveIndicator(indpos);
         }
 
-        if(Input.GetKeyDown(KeyCode.Return) && turn.state == TurnSystem.State.Player)
+        if(Input.GetKeyDown(KeyCode.Return) && turn.state == TurnSystem.State.Awaiting)
         {
             Attacks k = player.GetComponent<Attacks>();
             k.Invoke(currentSkill.name, 0);

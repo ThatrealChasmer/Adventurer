@@ -7,27 +7,50 @@ public class TurnSystem : MonoBehaviour
 {
     public enum State
     {
-        Player,
-        Enemy,
+        Awaiting,
+        Busy,
     }
     public event EventHandler PlayerTurnStart;
     public event EventHandler EnemyTurnStart;
 
+    public delegate void TurnCallback (int index);
+    public event TurnCallback NewTurn;
+
     public State state;
-    
+    public int index;
+    public int BattleEntitiesAmount;
+    public int PlayerIndex;
+
     void Start()
     {
-        state = State.Player;
+        state = State.Awaiting; // do usuniecia
     }
 
-    public void EndPlayerTurn()
+    private void PlayerTurnEnded()
     {
-        state = State.Enemy;
+        state = State.Busy;
         if (EnemyTurnStart != null) EnemyTurnStart(this, EventArgs.Empty);
     }
-    public void EndEnemyTurn()
+    private void PlayerTurnStarted()
     {
-        state = State.Player;
+        state = State.Awaiting;
         if (PlayerTurnStart != null) PlayerTurnStart(this, EventArgs.Empty);
     }
+
+    public void EndTurn()
+    {
+        if (index == PlayerIndex) PlayerTurnEnded();
+        
+        if (index < BattleEntitiesAmount) index++; //iterujemy po uczestnikach walki
+        else index = 0;
+
+        if (index == PlayerIndex) PlayerTurnStarted();
+
+
+
+        if (NewTurn != null) NewTurn(index); // odpalamy event mowiacy kogo jest tura
+    }
+    //1. robimy liste przeciwnikow - NOT NEEDED
+    //2. sortujemy ich po statystyce speed razem z graczem - NOT NEEDED
+    //3. 
 }

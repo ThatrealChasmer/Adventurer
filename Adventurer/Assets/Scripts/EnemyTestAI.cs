@@ -9,15 +9,16 @@ public class EnemyTestAI : MonoBehaviour
     private void Start()
     {
         TurnSystem = GameObject.FindGameObjectWithTag("Box").GetComponent<TurnSystem>();
-        TurnSystem.EnemyTurnStart += Action;
+        TurnSystem.NewTurn += Action;
     }
 
-    private void Action(object sender, System.EventArgs e)
+    private void Action(int index)
     {
+        //if (index == MyIndex){}
         Debug.Log("Enemy Action");
         PlayerStats.TakeDamage(10);
         Debug.Log(PlayerStats.playerStats.currentHealth);
-        TurnSystem.EndEnemyTurn();
+        TurnSystem.EndTurn();
     }
 
 

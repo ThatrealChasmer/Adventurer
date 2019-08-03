@@ -15,14 +15,14 @@ public class Attacks : MonoBehaviour
     {
         enemy.GetComponent<EnemyHealthSystem>().Damage(10);
         Debug.Log("skill used");
-        turn.EndPlayerTurn();
+        turn.EndTurn();
     }
 
     public void TestAttack2()
     {
         enemy.GetComponent<EnemyHealthSystem>().Damage(15);
         Debug.Log("skill used");
-        turn.EndPlayerTurn();
+        turn.EndTurn();
     }
 
     

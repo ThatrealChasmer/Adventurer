@@ -51,27 +51,22 @@ public class BattleManager : MonoBehaviour
         foreach(GameObject member in members)
         {
             Debug.Log("foreach");
-            int i = 0;
-            do
+            if(tmp.Count == 0)
             {
-                Debug.Log("for");
-                Debug.Log(members[i].name);
-                if (tmp.Count != 0)
+                tmp.Add(member);
+            }
+            else
+            {
+                for(int i = 0; i < tmp.Count; i++)
                 {
-                    if (member.GetComponent<EnemyStats>().speed > tmp[i].GetComponent<EnemyStats>().speed)
+                    if(member.GetComponent<EnemyStats>().speed > tmp[i].GetComponent<EnemyStats>().speed)
                     {
-                        Debug.Log(member.name);
                         tmp.Insert(i, member);
                         break;
                     }
+                    tmp.Add(member);
                 }
-                else
-                {
-                    Debug.Log(member.name);
-                    tmp.Insert(0, member);
-                }
-                i++;
-            } while (i < tmp.Count);
+            }
         }
         EnemyList = tmp;
     }

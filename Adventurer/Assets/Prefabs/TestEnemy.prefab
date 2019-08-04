@@ -245,9 +245,9 @@ GameObject:
   - component: {fileID: 3709417396368748107}
   - component: {fileID: 3709417396368748104}
   - component: {fileID: 3709417396368748106}
-  - component: {fileID: 6003911120002733838}
+  - component: {fileID: 2732340790991443305}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: TestEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f67257aa5587444a8220c9d1c1fbad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6003911120002733838
+--- !u!114 &2732340790991443305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3709417396368748105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406796f2f4c2b624480b227212185f83, type: 3}
+  m_Script: {fileID: 11500000, guid: f9a7af792655fc04c93214cd9d207a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TurnIndex: 0

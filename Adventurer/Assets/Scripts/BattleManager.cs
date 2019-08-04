@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    public List<GameObject> EnemyList;
+    public List<GameObject> EnemyList = new List<GameObject>();
 
     public List<GameObject> Enemies = new List<GameObject>();
 
+    public GameObject prefab;
     public int playerIndex;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
+        funkcja(prefab);
+        funkcja(prefab);
+        funkcja(prefab);
+
+
         sortList(EnemyList);
         InstantiateEnemies(EnemyList);
 
@@ -44,21 +50,28 @@ public class BattleManager : MonoBehaviour
 
         foreach(GameObject member in members)
         {
-            for(int i = 0; i <= tmp.Count; i++)
+            Debug.Log("foreach");
+            int i = 0;
+            do
             {
-                if(tmp.Count != 0)
+                Debug.Log("for");
+                Debug.Log(members[i].name);
+                if (tmp.Count != 0)
                 {
                     if (member.GetComponent<EnemyStats>().speed > tmp[i].GetComponent<EnemyStats>().speed)
                     {
+                        Debug.Log(member.name);
                         tmp.Insert(i, member);
                         break;
                     }
                 }
                 else
                 {
+                    Debug.Log(member.name);
                     tmp.Insert(0, member);
                 }
-            }
+                i++;
+            } while (i < tmp.Count);
         }
         EnemyList = tmp;
     }
@@ -70,5 +83,10 @@ public class BattleManager : MonoBehaviour
             GameObject enemy = Instantiate(enemies[i], new Vector3((gameObject.transform.localPosition.x - (((enemies.Count - 1)/2) * 2)) + i * 2, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z), Quaternion.identity);
             Enemies.Add(enemy);
         }
+    }
+
+    void funkcja(GameObject i)
+    {
+        EnemyList.Add(i);
     }
 }

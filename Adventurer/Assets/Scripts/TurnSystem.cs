@@ -48,9 +48,6 @@ public class TurnSystem : MonoBehaviour
 
 
 
-        if (NewTurn != null) NewTurn(index); // odpalamy event mowiacy kogo jest tura
+        if (NewTurn != null) NewTurn(index); // odpalamy event z parametrem kogo jest tura
     }
-    //1. robimy liste przeciwnikow - NOT NEEDED
-    //2. sortujemy ich po statystyce speed razem z graczem - NOT NEEDED
-    //3. 
 }

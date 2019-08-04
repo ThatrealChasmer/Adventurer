@@ -28,6 +28,8 @@ public class BattleManager : MonoBehaviour
             
             Enemies[i].GetComponent<EnemyStats>().TurnIndex = i + shift;
         }
+        GameObject.FindGameObjectWithTag("Box").GetComponent<TurnSystem>().PlayerIndex = playerIndex;
+        GameObject.FindGameObjectWithTag("Box").GetComponent<TurnSystem>().BattleEntitiesAmount = Enemies.Count;
     }
 
     // Update is called once per frame

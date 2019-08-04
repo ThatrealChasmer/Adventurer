@@ -23,6 +23,7 @@ public class TurnSystem : MonoBehaviour
 
     void Start()
     {
+        index = 0;
         state = State.Awaiting; // do usuniecia
     }
 

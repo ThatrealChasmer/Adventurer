@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 public static class PlayerStats
 {
@@ -11,34 +12,9 @@ public static class PlayerStats
         playerStats.currentHealth -= dmg;
     }
 
-    public static void ChangeStrength(int str)
+    public static void ChangeStat(string stat, int amount)
     {
-        playerStats.strength += str;
-    }
 
-    public static void ChangeDefense(int def)
-    {
-        playerStats.strength += def;
-    }
-
-    public static void ChangePerception(int per)
-    {
-        playerStats.strength += per;
-    }
-
-    public static void ChangeInteligence(int intel)
-    {
-        playerStats.strength += intel;
-    }
-
-    public static void ChangeSpeed(int spd)
-    {
-        playerStats.strength += spd;
-    }
-
-    public static void ChangeLuck(int luck)
-    {
-        playerStats.strength += luck;
     }
 
     public static void CalculateStats()

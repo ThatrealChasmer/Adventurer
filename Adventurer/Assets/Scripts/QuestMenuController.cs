@@ -1,36 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestMenuController : MonoBehaviour
 {
-    public class Quest
-    {
-        public string name;
-        public string description;
-        public int rewardGold;
+    public GameObject questField;
 
-        public Quest(string name, string desc, int gold)
-        {
-            this.name = name;
-            this.description = desc;
-            this.rewardGold = gold;
-        }
-    }
+    public List<Quests.Quest> viableQuests = new List<Quests.Quest>();
 
-    public List<Quest> viableQuests = new List<Quest>();
+    public List<Quests.Quest> quests = new List<Quests.Quest>();
 
+    public int qAmount;
     public int currentIndex;
-    public Quest currentQuest;
+    public Quests.Quest currentQuest;
     // Start is called before the first frame update
     void Start()
     {
-        viableQuests.Add(new Quest("Quest1", "This is test Quest1", 10));
-        viableQuests.Add(new Quest("Quest2", "This is test Quest2", 20));
-        viableQuests.Add(new Quest("Quest3", "This is test Quest3", 30));
-        currentIndex = 0;
-        currentQuest = viableQuests[currentIndex];
+        questField = gameObject;
+        Quests.pickableQuests = Quests.allQuests;
+        viableQuests = Quests.pickableQuests;
 
+        for(int i = 0; i < qAmount; i++)
+        {
+            int id = Random.Range(0, viableQuests.Count);
+            quests.Add(viableQuests[id]);
+            viableQuests.RemoveAt(id);
+        }
+        currentIndex = 0;
+        currentQuest = quests[currentIndex];
+
+        RenderQuest(currentQuest);
+        Debug.Log(currentQuest.name);
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class QuestMenuController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if(Input.GetKeyDown(KeyCode.RightArrow) && currentIndex + 1 < viableQuests.Count)
+            if(Input.GetKeyDown(KeyCode.RightArrow) && currentIndex + 1 < quests.Count)
             {
                 currentIndex++;
             }
@@ -47,15 +48,18 @@ public class QuestMenuController : MonoBehaviour
                 currentIndex--;
             }
 
-            currentQuest = viableQuests[currentIndex];
+            currentQuest = quests[currentIndex];
+            RenderQuest(currentQuest);
             Debug.Log(currentQuest.name);
         }
         
 
     }
 
-    public void RenderQuest(Quest quest)
+    public void RenderQuest(Quests.Quest quest)
     {
-        
+        transform.GetChild(0).GetComponent<Text>().text = quest.name;
+        transform.GetChild(1).GetComponent<Text>().text = quest.description;
+        transform.GetChild(3).GetComponent<Text>().text = quest.reward.ToString();
     }
 }

@@ -25,4 +25,16 @@ public static class CustomEnums
         Active,
         Completed
     }
+
+    public enum Zones
+    {
+        Forest
+    }
+
+    public enum AttackTypes
+    {
+        Damage,
+        Heal,
+        Utility
+    }
 }

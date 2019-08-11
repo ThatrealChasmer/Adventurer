@@ -66,4 +66,6 @@ public class MainCombatMenu : MonoBehaviour
         indicator.transform.position = indpos + new Vector3(x*200, + y*-55, 0);
         Debug.Log(indicator.transform.position.x + ", " + indicator.transform.position.y);
     }
+
+
 }

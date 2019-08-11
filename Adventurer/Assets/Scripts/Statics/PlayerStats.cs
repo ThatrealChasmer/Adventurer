@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class PlayerStats
 {
-    public static StatsTemplate.Stats playerStats = new StatsTemplate.Stats(1,1,1,1,1,1);
+    public static StatsTemplate.Stats playerStats = new StatsTemplate.Stats(1,1,1,1,10,1);
 
     public static void TakeDamage(int dmg)
     {

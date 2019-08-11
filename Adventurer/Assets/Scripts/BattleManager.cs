@@ -22,18 +22,32 @@ public class BattleManager : MonoBehaviour
         sortList(EnemyList);
         InstantiateEnemies(EnemyList);
 
-        int shift = 0;
+        /*int shift = 0;
+        playerIndex = 0;
         for (int i = 0; i < Enemies.Count; i++)
         {
             
-            if (PlayerStats.playerStats.speed > Enemies[i].GetComponent<EnemyStats>().speed)
+            if (PlayerStats.playerStats.speed < Enemies[i].GetComponent<EnemyStats>().speed)
             {
                 playerIndex = i;
-                shift++;
+                Debug.Log("Player index =" + i);
+                shift = 1;
             }
             
             Enemies[i].GetComponent<EnemyStats>().TurnIndex = i + shift;
+        }*/
+        playerIndex = Enemies.Count;
+        int shift = 0;
+        for (int i = Enemies.Count-1; i >= 0; i--)
+        {
+            if (PlayerStats.playerStats.speed > Enemies[i].GetComponent<EnemyStats>().speed)
+            {
+                playerIndex--;
+                shift = 1;
+            }
+            Enemies[i].GetComponent<EnemyStats>().TurnIndex = i + shift;
         }
+
         GameObject.FindGameObjectWithTag("Box").GetComponent<TurnSystem>().PlayerIndex = playerIndex;
         GameObject.FindGameObjectWithTag("Box").GetComponent<TurnSystem>().BattleEntitiesAmount = Enemies.Count;
     }
@@ -44,7 +58,7 @@ public class BattleManager : MonoBehaviour
         
     }
 
-    void sortList(List<GameObject> members)
+    /*void sortList(List<GameObject> members)
     {
         List<GameObject> tmp = new List<GameObject>();
 
@@ -69,6 +83,24 @@ public class BattleManager : MonoBehaviour
             }
         }
         EnemyList = tmp;
+    }*/
+
+    void sortList(List<GameObject> toSort)
+    {
+        GameObject tmp;
+        for (int i = 0; i < toSort.Count; i++)
+        {
+            for (int j = 1; j < toSort.Count - 1; j++)
+            {
+                if (toSort[j - 1].GetComponent<EnemyStats>().speed < toSort[j].GetComponent<EnemyStats>().speed)
+                {
+                    tmp = toSort[j - 1];
+                    toSort[j - 1] = toSort[j];
+                    toSort[j] = tmp;
+                }
+            }
+        }
+        EnemyList = toSort;
     }
 
     void InstantiateEnemies(List<GameObject> enemies)

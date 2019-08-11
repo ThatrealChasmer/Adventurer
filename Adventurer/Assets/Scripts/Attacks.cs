@@ -8,22 +8,31 @@ public class Attacks : MonoBehaviour
     public TurnSystem turn;
     private void Start()
     {
-        enemy = GameObject.FindGameObjectWithTag("Enemy");
         turn = GameObject.FindGameObjectWithTag("Box").GetComponent<TurnSystem>();
     }
     public void TestAttack1()
     {
-        enemy.GetComponent<EnemyHealthSystem>().Damage(10);
+        //List<Gameobject> enemiesToDamage = selectenemies(1);
+        //enemyToDamge.takedamage(10)
         Debug.Log("skill used");
         turn.EndTurn();
     }
 
-    public void TestAttack2()
+    public void TestAoeAttack()
     {
-        enemy.GetComponent<EnemyHealthSystem>().Damage(15);
+        // List<Gameobject> enemiesToDamage = selectenemy(3)
+        // 
         Debug.Log("skill used");
         turn.EndTurn();
     }
 
-    
+    public void TestAttack3()
+    {
+        // List<Gameobject> enemiesToDamage = selectenemy(3)
+        // 
+        Debug.Log("skill used");
+        turn.EndTurn();
+    }
+
+
 }

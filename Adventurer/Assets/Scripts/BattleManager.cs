@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BattleManager : MonoBehaviour
 {
@@ -19,8 +20,10 @@ public class BattleManager : MonoBehaviour
         funkcja(prefab);
 
 
-        sortList(EnemyList);
-        InstantiateEnemies(EnemyList);
+        Enemies = EnemyList.OrderBy(t => t.GetComponent<EnemyStats>().speed).ThenBy(t => t.GetComponent<EnemyStats>().perception).ToList();
+
+
+        InstantiateEnemies(Enemies);
 
         int shift = 0;
         for (int i = 0; i < Enemies.Count; i++)
@@ -76,7 +79,6 @@ public class BattleManager : MonoBehaviour
         for(int i = 0; i < enemies.Count; i++)
         {
             GameObject enemy = Instantiate(enemies[i], new Vector3((gameObject.transform.localPosition.x - (((enemies.Count - 1)/2) * 2)) + i * 2, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z), Quaternion.identity);
-            Enemies.Add(enemy);
         }
     }
 

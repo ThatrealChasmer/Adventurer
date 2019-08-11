@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    public int TurnIndex;
-    public int strength;
-    public int defense;
-    public int perception;
-    public int inteligence;
-    public int speed;
-    public int luck;
+    public EnemySO so;
 
-    public StatsTemplate.Stats stats;
+    public int level;
+    public int TurnIndex;
+
+    public int maxHealth;
+    public int Health;
+    public int maxStamina;
+    public int currentStamina;
+    public int maxMana;
+    public int currentMana;
 
     private void Start()
     {
-        stats = new StatsTemplate.Stats(strength, defense, perception, inteligence, speed, luck);
     }
 
+    void Import(EnemySO so)
+    {
+        this.so = so;
+    }
 }

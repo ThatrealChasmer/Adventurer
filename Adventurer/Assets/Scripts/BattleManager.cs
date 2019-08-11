@@ -20,7 +20,7 @@ public class BattleManager : MonoBehaviour
         funkcja(prefab);
 
 
-        Enemies = EnemyList.OrderBy(t => t.GetComponent<EnemyStats>().speed).ThenBy(t => t.GetComponent<EnemyStats>().perception).ToList();
+        Enemies = EnemyList.OrderBy(t => t.GetComponent<EnemyStats>().so.speed).ThenBy(t => t.GetComponent<EnemyStats>().so.perception).ToList();
 
 
         InstantiateEnemies(Enemies);
@@ -43,7 +43,7 @@ public class BattleManager : MonoBehaviour
         int shift = 0;
         for (int i = Enemies.Count-1; i >= 0; i--)
         {
-            if (PlayerStats.playerStats.speed > Enemies[i].GetComponent<EnemyStats>().speed)
+            if (PlayerStats.playerStats.speed > Enemies[i].GetComponent<EnemyStats>().so.speed)
             {
                 playerIndex--;
                 shift = 1;
@@ -95,7 +95,7 @@ public class BattleManager : MonoBehaviour
         {
             for (int j = 1; j < toSort.Count - 1; j++)
             {
-                if (toSort[j - 1].GetComponent<EnemyStats>().speed < toSort[j].GetComponent<EnemyStats>().speed)
+                if (toSort[j - 1].GetComponent<EnemyStats>().so.speed < toSort[j].GetComponent<EnemyStats>().so.speed)
                 {
                     tmp = toSort[j - 1];
                     toSort[j - 1] = toSort[j];

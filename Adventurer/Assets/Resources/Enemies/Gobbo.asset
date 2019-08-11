@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80914c684cd2a9a429b34872942dc9fe, type: 3}
+  m_Name: Gobbo
+  m_EditorClassIdentifier: 
+  name: Gobbo
+  art: {fileID: 0}
+  id: 1
+  lvl: 0
+  maxHealth: 0
+  Health: 0
+  maxStamina: 0
+  currentStamina: 0
+  maxMana: 0
+  currentMana: 0
+  strength: 0
+  defense: 0
+  perception: 0
+  inteligence: 0
+  speed: 0
+  luck: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy")]
 public class EnemySO : ScriptableObject
 {
-    public new string name;
+    public string enemy_name;
     public Sprite art;
     public int id;
 
@@ -14,7 +14,9 @@ public class EnemySO : ScriptableObject
     public int strength;
     public int defense;
     public int perception;
-    public int inteligence;
+    public int intelligence;
     public int speed;
     public int luck;
+
+    public float range;
 }

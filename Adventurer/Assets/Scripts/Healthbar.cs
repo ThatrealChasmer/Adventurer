@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Healthbar : MonoBehaviour
 {
-    private EnemyHealthSystem healthSystem;
+    private EnemyStatistsics healthSystem;
 
-    public void Start()
+    public void Initiate()
     {
-        this.healthSystem = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyHealthSystem>();
+        healthSystem = gameObject.GetComponentInParent<EnemyStatistsics>();
         healthSystem.OnEnemyHealthChanged += k;
+        k();
     }
 
-    private void k(object sender, System.EventArgs e)
+    private void k()
     {
         transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);
     }

@@ -20,7 +20,7 @@ public class BattleManager : MonoBehaviour
         funkcja(prefab);
 
 
-        Enemies = EnemyList.OrderBy(t => t.GetComponent<EnemyStats>().so.speed).ThenBy(t => t.GetComponent<EnemyStats>().so.perception).ToList();
+        Enemies = EnemyList.OrderBy(t => t.GetComponent<EnemyStatistsics>().so.speed).ThenBy(t => t.GetComponent<EnemyStatistsics>().so.perception).ToList();
 
 
         InstantiateEnemies(Enemies);
@@ -30,25 +30,25 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < Enemies.Count; i++)
         {
             
-            if (PlayerStats.playerStats.speed < Enemies[i].GetComponent<EnemyStats>().speed)
+            if (PlayerStats.playerStats.speed < Enemies[i].GetComponent<EnemyStatistsics>().speed)
             {
                 playerIndex = i;
                 Debug.Log("Player index =" + i);
                 shift = 1;
             }
             
-            Enemies[i].GetComponent<EnemyStats>().TurnIndex = i + shift;
+            Enemies[i].GetComponent<EnemyStatistsics>().TurnIndex = i + shift;
         }*/
         playerIndex = Enemies.Count;
         int shift = 0;
         for (int i = Enemies.Count-1; i >= 0; i--)
         {
-            /*if (PlayerStats.playerStats.speed > Enemies[i].GetComponent<EnemyStats>().so.speed)
+            /*if (PlayerStats.playerStats.speed > Enemies[i].GetComponent<EnemyStatistsics>().so.speed)
             {
                 playerIndex--;
                 shift = 1;
             }*/
-            Enemies[i].GetComponent<EnemyStats>().TurnIndex = i + shift;
+            Enemies[i].GetComponent<EnemyStatistsics>().TurnIndex = i + shift;
         }
 
         GameObject.FindGameObjectWithTag("Box").GetComponent<TurnSystem>().PlayerIndex = playerIndex;
@@ -76,7 +76,7 @@ public class BattleManager : MonoBehaviour
             {
                 for(int i = 0; i < tmp.Count; i++)
                 {
-                    if(member.GetComponent<EnemyStats>().speed > tmp[i].GetComponent<EnemyStats>().speed)
+                    if(member.GetComponent<EnemyStatistsics>().speed > tmp[i].GetComponent<EnemyStatistsics>().speed)
                     {
                         tmp.Insert(i, member);
                         break;
@@ -95,7 +95,7 @@ public class BattleManager : MonoBehaviour
         {
             for (int j = 1; j < toSort.Count - 1; j++)
             {
-                if (toSort[j - 1].GetComponent<EnemyStats>().so.speed < toSort[j].GetComponent<EnemyStats>().so.speed)
+                if (toSort[j - 1].GetComponent<EnemyStatistsics>().so.speed < toSort[j].GetComponent<EnemyStatistsics>().so.speed)
                 {
                     tmp = toSort[j - 1];
                     toSort[j - 1] = toSort[j];

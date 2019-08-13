@@ -8,8 +8,8 @@ public class Enemy
     public string name;
     public int level;
     public CustomEnums.Zones zone;
-    public StatsTemplate.Stats minStats;
-    public StatsTemplate.Stats maxStats;
+    //public StatsTemplate.Stats minStats;
+    //public StatsTemplate.Stats maxStats;
     public List<EnemyAttack> attacks;
 
     public string TurnAI()

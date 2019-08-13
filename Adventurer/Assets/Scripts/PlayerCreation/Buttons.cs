@@ -1,44 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Buttons
+public class Buttons: MonoBehaviour
 {
-    StatsTemplate.Stats stats = new StatsTemplate.Stats(0, 0, 0, 0, 0, 0);
+    public GameObject menuManager;
 
-    public void ChangeStat(bool increment, string stat)
+    int pointsLeft;
+    
+    private void Update()
     {
-        int amount = 1;
-        if(!increment)
+        pointsLeft = menuManager.GetComponent<PlayerCreationController>().pointsLeft;
+        if(pointsLeft == 0)
         {
-            amount = -amount;
+            transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
         }
-
-        switch(stat)
+        else
         {
-            case "strength":
-                stats.strength += amount;
-                break;
-            case "defense":
-                stats.defense += amount;
-                break;
-            case "perception":
-                stats.perception += amount;
-                break;
-            case "intelligence":
-                stats.inteligence += amount;
-                break;
-            case "speed":
-                stats.speed += amount;
-                break;
-            case "luck":
-                stats.luck += amount;
-                break;
+            transform.GetChild(2).gameObject.GetComponent<Button>().interactable = true;
         }
-    }
-
-    public void Confirm()
-    {
-        PlayerStats.
+        
+        if(int.Parse(transform.GetChild(0).gameObject.GetComponent<Text>().text) <= 1)
+        {
+            transform.GetChild(1).GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            transform.GetChild(1).GetComponent<Button>().interactable = true;
+        }
     }
 }

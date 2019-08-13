@@ -43,11 +43,11 @@ public class BattleManager : MonoBehaviour
         int shift = 0;
         for (int i = Enemies.Count-1; i >= 0; i--)
         {
-            if (PlayerStats.playerStats.speed > Enemies[i].GetComponent<EnemyStats>().so.speed)
+            /*if (PlayerStats.playerStats.speed > Enemies[i].GetComponent<EnemyStats>().so.speed)
             {
                 playerIndex--;
                 shift = 1;
-            }
+            }*/
             Enemies[i].GetComponent<EnemyStats>().TurnIndex = i + shift;
         }
 

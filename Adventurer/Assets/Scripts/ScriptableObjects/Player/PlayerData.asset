@@ -15,3 +15,7 @@ MonoBehaviour:
   money: 0
   skills:
   - {fileID: 11400000, guid: 61b8c9cbc8cb5d84f9b8cb9b6f98ae2d, type: 2}
+  - {fileID: 11400000, guid: 9579b739843fd8342999363d390c8f6c, type: 2}
+  - {fileID: 11400000, guid: 5c0def00b7a0340408f54f8b48a2e0cd, type: 2}
+  - {fileID: 11400000, guid: ff453fa94d0ef104f8f162483cb6bcbf, type: 2}
+  - {fileID: 11400000, guid: a0943f52f95b2334fbc7129cb42d917f, type: 2}

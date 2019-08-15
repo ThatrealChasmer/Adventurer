@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80914c684cd2a9a429b34872942dc9fe, type: 3}
-  m_Name: Gobbo
+  m_Name: Goblin
   m_EditorClassIdentifier: 
-  enemy_name: Gobbo
-  art: {fileID: 21300000, guid: 0888a9418e620a24a8592584716dda2d, type: 3}
-  id: 1
-  level: 5
-  strength: 5
-  defense: 5
-  perception: 5
-  intelligence: 5
-  speed: 5
-  luck: 5
-  range: 1
+  enemy_name: 
+  art: {fileID: 0}
+  id: 0
+  level: 0
+  strength: 0
+  defense: 0
+  perception: 0
+  intelligence: 0
+  speed: 0
+  luck: 0
+  range: 0

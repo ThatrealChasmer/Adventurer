@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Skill", menuName = "Skill")]
-public class SkillSO : ScriptableObject
+[CreateAssetMenu(fileName = "New enemy attack", menuName = "Enemy Attack")]
+public class EnemyAttackSO : ScriptableObject
 {
-    public string skillName;
-    public string weapon;
-    public Sprite icon;
+    public string attackName;
     public string targetType;
     public int targets;
     public int damage;

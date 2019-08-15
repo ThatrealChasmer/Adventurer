@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 508b9af9591a39940bf102c15d47c949, type: 3}
-  m_Name: Slash
+  m_Name: Poke
   m_EditorClassIdentifier: 
-  skillName: Slash
+  skillName: Poke
   weapon: Sword
-  icon: {fileID: 21300000, guid: 4873aa989d5fcd546b28025805f15ee8, type: 3}
+  icon: {fileID: 21300000, guid: 1fcf412abaeabee4a8d27b45394ad0c4, type: 3}
   targetType: Enemy
   targets: 1
-  damage: 10
-  staminaUsage: 5
+  damage: 30
+  staminaUsage: 0

@@ -62,4 +62,14 @@ public class PlayerStatistics : ScriptableObject
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
+
+    public void RestoreMana(int amount)
+    {
+        currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
+    }
+
+    public void RestoreStamina(int amount)
+    {
+        currentStamina = Mathf.Clamp(currentStamina + amount, 0, maxStamina);
+    }
 }

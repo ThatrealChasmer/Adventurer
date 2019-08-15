@@ -169,6 +169,7 @@ MonoBehaviour:
   skill: {fileID: 0}
   text: {fileID: 8636104108597081839}
   icon: {fileID: 8636104109165397698}
+  connector: {fileID: 11400000, guid: 0b64438f13dc6f649869235f638936f9, type: 2}
 --- !u!1 &8636104108597081837
 GameObject:
   m_ObjectHideFlags: 0

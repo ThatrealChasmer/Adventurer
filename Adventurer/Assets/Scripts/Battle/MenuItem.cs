@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class MenuItem : MonoBehaviour
 {
-    public SkillSO skill;
+    public SkillSO skill = null;
     public Text text;
     public GameObject icon;
+
+    public BattleManagerConnector connector;
 
     private void Start()
     {
@@ -19,6 +21,7 @@ public class MenuItem : MonoBehaviour
         this.skill = skill;
         text.text = skill.skillName;
         icon.GetComponent<Image>().sprite = skill.icon;
+        transform.GetChild(0).GetComponent<Button>().onClick.AddListener(OnUse);
     }
 
     /*
@@ -31,4 +34,9 @@ public class MenuItem : MonoBehaviour
     {
 
     }*/
+
+    public void OnUse()
+    {
+        connector.skill = skill;
+    }
 }

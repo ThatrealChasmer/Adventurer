@@ -15,11 +15,11 @@ MonoBehaviour:
   enemy_name: Doggo
   art: {fileID: 21300000, guid: ccae247987cd7824086b6e04357ea236, type: 3}
   id: 2
-  level: 6
+  level: 1
   strength: 6
   defense: 6
   perception: 6
   intelligence: 6
   speed: 6
   luck: 6
-  range: 1
+  range: 0.1

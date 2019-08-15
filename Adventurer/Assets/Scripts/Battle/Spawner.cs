@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public List<EnemySO> enemies;
+    public List<EnemySO> enemiesSO;
+    public List<GameObject> enemies;
     public GameObject enemyConstructor;
+    TurnSystem2 TurnSystemReference;
 
     private void Start()
     {
+        TurnSystemReference = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<TurnSystem2>();
         Spawn();
     }
 
     private void Spawn()
     {
-        GameObject tmp;
-        for (int i = 0; i< enemies.Count; i++)
+        int i;
+        for (i = 0;  i < enemiesSO.Count; i++)
         {
-            tmp = Instantiate(enemyConstructor, new Vector3(i, 0, 0), Quaternion.identity);
-            tmp.GetComponent<EnemyStatistsics>().so = enemies[i];
+            enemies.Add(Instantiate(enemyConstructor, new Vector3(i, 0, 0), Quaternion.identity));
+            enemies[i].GetComponent<EnemyStatistsics>().so = enemiesSO[i];
+            enemies[i].GetComponent<EnemyAI>().TurnIndex = i;
+
         }
+        TurnSystemReference.PlayerIndex = enemies.Count;
+        TurnSystemReference.enemies = enemies;
+        TurnSystemReference.StartTurn();
+        // przyznawanie indexow
     }
 
 }

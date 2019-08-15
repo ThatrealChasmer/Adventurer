@@ -21,10 +21,15 @@ public class TurnSystem : MonoBehaviour
     public int BattleEntitiesAmount;
     public int PlayerIndex;
 
-    void Start()
+    private void Awake()
     {
         index = 0;
         state = State.Awaiting; // do usuniecia
+    }
+
+    public void Initiate()
+    {
+        if (NewTurn != null) NewTurn(index);
     }
 
     private void PlayerTurnEnded()

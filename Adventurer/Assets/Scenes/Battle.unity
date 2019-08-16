@@ -414,6 +414,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &526260103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 526260105}
+  - component: {fileID: 526260104}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: BattleManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &526260104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526260103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75f6fcc6ee47414b873dd6943181f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesSO:
+  - {fileID: 11400000, guid: c3c6b88719e59834fa7e723481640fe3, type: 2}
+  - {fileID: 11400000, guid: c3c6b88719e59834fa7e723481640fe3, type: 2}
+  - {fileID: 11400000, guid: c3c6b88719e59834fa7e723481640fe3, type: 2}
+  enemies: []
+  enemyConstructor: {fileID: 7592402071104581585, guid: 7b072092809b01c4c8aac877828fcbac,
+    type: 3}
+  TurnSystemReference: {fileID: 1439129918}
+--- !u!4 &526260105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526260103}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.16362515, y: -0.67086357, z: -1.1857297}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637556328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,9 +1194,10 @@ GameObject:
   - component: {fileID: 1439129915}
   - component: {fileID: 1439129917}
   - component: {fileID: 1439129916}
+  - component: {fileID: 1439129918}
   m_Layer: 0
   m_Name: BattleManager
-  m_TagString: Untagged
+  m_TagString: BattleManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1195,6 +1247,20 @@ MonoBehaviour:
   skillEffects: {fileID: 0}
   enemyAttack: {fileID: 0}
   targetType: 
+--- !u!114 &1439129918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439129914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7427ffebb6c5647800ff4ec5c16a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIndex: 0
+  enemies: []
 --- !u!1 &1461641180
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,55 +5,27 @@ using System;
 
 public class TurnSystem : MonoBehaviour
 {
-    public enum State
-    {
-        Awaiting,
-        Busy,
-    }
-    public event EventHandler PlayerTurnStart;
-    public event EventHandler EnemyTurnStart;
+    int index = 0;
+    int shift = 0;
 
-    public delegate void TurnCallback (int index);
-    public event TurnCallback NewTurn;
-
-    public State state;
-    public int index;
-    public int BattleEntitiesAmount;
     public int PlayerIndex;
+    public List<GameObject> enemies;
 
-    private void Awake()
+    public void StartTurn()
     {
-        index = 0;
-        state = State.Awaiting; // do usuniecia
-    }
+        if (index != PlayerIndex)
+        {
+            if (index < PlayerIndex) shift = 0;
+            else shift = -1;
 
-    public void Initiate()
-    {
-        if (NewTurn != null) NewTurn(index);
+            enemies[index + shift].GetComponent<EnemyAI>().Act();
+        }
     }
-
-    private void PlayerTurnEnded()
-    {
-        state = State.Busy;
-        if (EnemyTurnStart != null) EnemyTurnStart(this, EventArgs.Empty);
-    }
-    private void PlayerTurnStarted()
-    {
-        state = State.Awaiting;
-        if (PlayerTurnStart != null) PlayerTurnStart(this, EventArgs.Empty);
-    }
-
     public void EndTurn()
     {
-        if (index == PlayerIndex) PlayerTurnEnded();
-        
-        if (index < BattleEntitiesAmount) index++; //iterujemy po uczestnikach walki
+        if (index < enemies.Count) index++;
         else index = 0;
 
-        if (index == PlayerIndex) PlayerTurnStarted();
-
-
-
-        if (NewTurn != null) NewTurn(index); // odpalamy event z parametrem kogo jest tura
+        StartTurn();
     }
 }

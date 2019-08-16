@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     public int TurnIndex;
-    TurnSystem2 TurnSystemReference;
+    TurnSystem TurnSystemReference;
     private void Awake()
     {
-        TurnSystemReference = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<TurnSystem2>();
+        Debug.Log("Awake");
+        TurnSystemReference = GameObject.Find("BattleManager").GetComponent<TurnSystem>();
     }
     public void Act()
     {

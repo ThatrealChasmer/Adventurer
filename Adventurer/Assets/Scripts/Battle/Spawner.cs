@@ -7,11 +7,11 @@ public class Spawner : MonoBehaviour
     public List<EnemySO> enemiesSO;
     public List<GameObject> enemies;
     public GameObject enemyConstructor;
-    TurnSystem2 TurnSystemReference;
+
+    public TurnSystem TurnSystemReference;
 
     private void Start()
     {
-        TurnSystemReference = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<TurnSystem2>();
         Spawn();
     }
 

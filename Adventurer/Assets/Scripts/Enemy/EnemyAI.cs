@@ -12,7 +12,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Awake");
         TurnSystemReference = GameObject.Find("BattleManager").GetComponent<TurnSystem>();
         bm = GameObject.Find("BattleManager").GetComponent<BattleManager>();
     }
@@ -48,6 +47,5 @@ public class EnemyAI : MonoBehaviour
         }
         Debug.Log("Attack by " + TurnIndex + "Attack name: " + so.attacks[pick].attackName);
         GameObject.Find("BattleManager").GetComponent<BattleManager>().ConfirmAttack();
-        TurnSystemReference.EndTurn();
     }
 }

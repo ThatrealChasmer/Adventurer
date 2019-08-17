@@ -5,7 +5,7 @@ using System;
 
 public class TurnSystem : MonoBehaviour
 {
-    int index = 0;
+    public int index = 0;
     int shift = 0;
 
     public int PlayerIndex;

@@ -1517,6 +1517,7 @@ MonoBehaviour:
   skillEffects: {fileID: 0}
   enemyAttack: {fileID: 0}
   eaEffects: {fileID: 0}
+  turnSystem: {fileID: 1439129918}
   targetType: 
 --- !u!114 &1439129918
 MonoBehaviour:
@@ -1530,6 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7427ffebb6c5647800ff4ec5c16a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   PlayerIndex: 0
   enemies: []
 --- !u!114 &1439129919

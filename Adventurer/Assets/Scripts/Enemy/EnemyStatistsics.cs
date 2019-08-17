@@ -50,7 +50,7 @@ public class EnemyStatistsics : MonoBehaviour
         speed = so.speed;
         luck = so.luck;
             
-        max_health = strength;
+        max_health = strength*10;
         max_mana = intelligence;
         max_stamina = speed;
 
@@ -73,6 +73,7 @@ public class EnemyStatistsics : MonoBehaviour
         {
             health = 0;
             if (EnemyDeath != null) EnemyDeath();
+            gameObject.SetActive(false);
         }
        if (OnEnemyHealthChanged != null) OnEnemyHealthChanged();
         Debug.Log(health);

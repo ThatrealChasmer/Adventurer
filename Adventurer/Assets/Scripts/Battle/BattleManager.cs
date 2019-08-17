@@ -15,6 +15,8 @@ public class BattleManager : MonoBehaviour
     public System.Type pt;
     public System.Type et;
 
+    public TurnSystem turnSystem;
+
     public string targetType;
 
     private void Awake()
@@ -88,5 +90,6 @@ public class BattleManager : MonoBehaviour
             }
         }
         targets.Clear();
+        turnSystem.EndTurn();
     }
 }

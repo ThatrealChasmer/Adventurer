@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 7384318278383396153}
   - component: {fileID: 764642823472784931}
   - component: {fileID: 431959967737099652}
+  - component: {fileID: 4269939724385679644}
   m_Layer: 5
   m_Name: EnemyPrefab
   m_TagString: Enemy
@@ -540,6 +541,19 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   button: {fileID: 2583886863847581724}
   border: {fileID: 5392751460629689290}
+  selectionManager: {fileID: 0}
+--- !u!114 &4269939724385679644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268213075518553050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8524bba2effcd9d4d96e3ba0d63a0a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3268213075640106553
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +565,7 @@ GameObject:
   - component: {fileID: 3268213075640106554}
   - component: {fileID: 3268213075640106556}
   - component: {fileID: 3268213075640106555}
+  - component: {fileID: 5819149027182057888}
   m_Layer: 5
   m_Name: HPBar
   m_TagString: Untagged
@@ -615,6 +630,18 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &5819149027182057888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268213075640106553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8524bba2effcd9d4d96e3ba0d63a0a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5392751460629689290
 GameObject:
   m_ObjectHideFlags: 0

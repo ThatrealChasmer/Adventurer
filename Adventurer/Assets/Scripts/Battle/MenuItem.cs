@@ -10,10 +10,11 @@ public class MenuItem : MonoBehaviour
     public GameObject icon;
 
     public BattleManagerConnector connector;
+    public GameObject selectionManager;
 
     private void Start()
     {
-        
+        selectionManager = GameObject.Find("SelectionManager");
     }
 
     public void Fill(SkillSO skill)
@@ -38,5 +39,8 @@ public class MenuItem : MonoBehaviour
     public void OnUse()
     {
         connector.skill = skill;
+        connector.targetType = skill.targetType;
+        selectionManager.GetComponent<SelectionManager>().selections = skill.targets;
+        selectionManager.GetComponent<SelectionManager>().SetSelection(true);
     }
 }

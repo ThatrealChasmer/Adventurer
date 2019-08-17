@@ -85,6 +85,7 @@ public class PlayerCreationController : MonoBehaviour
     public void Confirm(string name)
     {
         stats.playerName = nameField.GetComponent<InputField>().text;
+        stats.CalculateStats();
         SceneLoader.Load(name);
     }
 }

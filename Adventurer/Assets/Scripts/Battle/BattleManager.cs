@@ -5,13 +5,15 @@ using System.Reflection;
 
 public class BattleManager : MonoBehaviour
 {
-    public List<GameObject> targets;
+    public List<GameObject> targets = new List<GameObject>();
 
     public BattleManagerConnector connector;
     public SkillSO skill;
     public SkillEffects skillEffects;
     public EnemyAttackSO enemyAttack;
+    public EnemyAttackEffects eaEffects;
     public System.Type pt;
+    public System.Type et;
 
     public string targetType;
 
@@ -19,6 +21,8 @@ public class BattleManager : MonoBehaviour
     {
         skillEffects = GetComponent<SkillEffects>();
         pt = skillEffects.GetType();
+        eaEffects = GetComponent<EnemyAttackEffects>();
+        et = eaEffects.GetType();
     }
 
     public void AddTarget(GameObject target)
@@ -33,6 +37,8 @@ public class BattleManager : MonoBehaviour
 
     public void ConfirmAttack()
     {
+        targetType = connector.targetType;
+        
         if(targetType == "Enemy")
         {
             foreach(GameObject target in targets)
@@ -63,5 +69,24 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+        else if(targetType == "Player")
+        {
+            enemyAttack = connector.enemyAttack;
+            foreach (GameObject target in targets)
+            {
+                Debug.Log(targets.Count);
+                Debug.Log(target.name);
+                target.GetComponent<Player>().stats.TakeDamage(enemyAttack.damage);
+                foreach (MethodInfo m in et.GetMethods())
+                {
+                    if (m.Name == enemyAttack.name)
+                    {
+                        eaEffects.target = target;
+                        eaEffects.Invoke(skill.name, 0);
+                    }
+                }
+            }
+        }
+        targets.Clear();
     }
 }

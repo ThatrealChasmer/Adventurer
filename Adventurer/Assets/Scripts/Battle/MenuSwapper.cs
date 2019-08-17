@@ -9,16 +9,21 @@ public class MenuSwapper : MonoBehaviour
     public GameObject attack;
     public GameObject spells;
     public GameObject items;
+    public GameObject selection;
 
     public GameObject currentMenu;
+    public GameObject previousMenu;
     // Start is called before the first frame update
     void Start()
     {
         currentMenu = main;
+        previousMenu = main;
     }
 
     public void swapMenu(string menu)
     {
+        GameObject tmp = previousMenu;
+        previousMenu = currentMenu;
         currentMenu.SetActive(false);
         switch(menu)
         {
@@ -34,7 +39,12 @@ public class MenuSwapper : MonoBehaviour
             case "Items":
                 currentMenu = items;
                 break;
-                
+            case "Selection":
+                currentMenu = selection;
+                break;
+            case "Previous":
+                currentMenu = tmp;
+                break;  
         }
         currentMenu.SetActive(true);
     }

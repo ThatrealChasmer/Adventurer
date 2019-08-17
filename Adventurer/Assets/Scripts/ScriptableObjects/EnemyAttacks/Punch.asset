@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349a3b2bcf25991419ea89c8ca48a287, type: 3}
-  m_Name: BattleManagerConnector
+  m_Script: {fileID: 11500000, guid: ecd709ed82cbe75409519b859a063dca, type: 3}
+  m_Name: Punch
   m_EditorClassIdentifier: 
-  skill: {fileID: 0}
-  enemyAttack: {fileID: 11400000, guid: bf89d33f1f99dfc409bceae5301171f5, type: 2}
+  attackName: Punch
   targetType: Player
-  targets: []
+  targets: 1
+  damage: 10
+  staminaUsage: 0

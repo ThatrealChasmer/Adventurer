@@ -7,4 +7,10 @@ public class BattleManagerConnector : ScriptableObject
 {
     public SkillSO skill;
     public EnemyAttackSO enemyAttack;
+    public string targetType;
+
+    public void setAction()
+    {
+
+    }
 }

@@ -23,3 +23,6 @@ MonoBehaviour:
   speed: 6
   luck: 6
   range: 0.1
+  attacks:
+  - {fileID: 11400000, guid: 015971515609546408a8b7ab14113378, type: 2}
+  - {fileID: 11400000, guid: f35b0091702851b41988fdba245e2d9e, type: 2}

@@ -14,14 +14,26 @@ public class PlayerStatistics : ScriptableObject
     public int speed;
     public int luck;
 
-    int maxHealth;
-    int currentHealth;
+    public int maxHealth;
+    public int currentHealth;
 
-    int maxStamina;
-    int currentStamina;
+    public int maxStamina;
+    public int currentStamina;
 
-    int maxMana;
-    int currentMana;
+    public int maxMana;
+    public int currentMana;
+
+    public void CalculateStats()
+    {
+        maxHealth = 200 + (5 * strength);
+        currentHealth = maxHealth;
+
+        maxStamina = 50 + (defense / 10);
+        currentStamina = maxStamina;
+
+        maxMana = 80 + (intelligence / 5);
+        currentMana = maxMana;
+    }
 
     public void ChangeStats(int[] amounts)
     {
@@ -29,12 +41,12 @@ public class PlayerStatistics : ScriptableObject
         int tmpStamina = maxStamina;
         int tmpMana = maxMana;
 
-        strength = amounts[0];
-        defense = amounts[1];
-        perception = amounts[2];
-        intelligence = amounts[3];
-        speed = amounts[4];
-        luck = amounts[5];
+        strength += amounts[0];
+        defense += amounts[1];
+        perception += amounts[2];
+        intelligence += amounts[3];
+        speed += amounts[4];
+        luck += amounts[5];
 
         maxHealth = 200 + (5 * amounts[0]);
         currentHealth += maxHealth - tmpHealth;

@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyStatistsics : MonoBehaviour
 {
     public delegate void EnemyHealthCallback();
     public event EnemyHealthCallback OnEnemyHealthChanged;
     public event EnemyHealthCallback EnemyDeath;
+
+    public GameObject sprite;
+    public GameObject nameText;
 
     public int TurnIndex;
 
@@ -57,8 +61,9 @@ public class EnemyStatistsics : MonoBehaviour
         level = so.level;
         enemy_name = so.enemy_name;
 
-        gameObject.GetComponent<SpriteRenderer>().sprite = so.art;
-        transform.GetChild(0).GetComponent<Healthbar>().Initiate();
+        sprite.GetComponent<Image>().sprite = so.art;
+        nameText.GetComponent<Text>().text = so.enemy_name;
+        //transform.GetChild(0).GetComponent<Healthbar>().Initiate();
     }
 
     public void Take_Damage(int damage)

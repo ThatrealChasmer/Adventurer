@@ -19,4 +19,6 @@ public class EnemySO : ScriptableObject
     public int luck;
 
     public float range;
+
+    public List<EnemyAttackSO> attacks;
 }

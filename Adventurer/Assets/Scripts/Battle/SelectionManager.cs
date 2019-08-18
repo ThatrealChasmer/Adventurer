@@ -47,6 +47,7 @@ public class SelectionManager : MonoBehaviour
             {
                 enemy.GetComponent<EnemyBattleController>().SelectDeselect();
             }
+            enemy.GetComponent<EnemyBattleController>().SetInteractive(false);
         }
     }
 }

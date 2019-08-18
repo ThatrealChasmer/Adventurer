@@ -29,4 +29,10 @@ public class TurnSystem : MonoBehaviour
 
         StartTurn();
     }
+
+    public void RemoveFromEnemies(GameObject enemy)
+    {
+        enemies.Remove(enemy);
+        PlayerIndex--;
+    }
 }

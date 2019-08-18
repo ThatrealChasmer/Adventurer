@@ -73,10 +73,17 @@ public class EnemyStatistsics : MonoBehaviour
         {
             health = 0;
             if (EnemyDeath != null) EnemyDeath();
+            GameObject.Find("BattleManager").GetComponent<TurnSystem>().RemoveFromEnemies(gameObject);
             gameObject.SetActive(false);
+            if (OnEnemyHealthChanged != null) OnEnemyHealthChanged();
+            Debug.Log(health);
         }
-       if (OnEnemyHealthChanged != null) OnEnemyHealthChanged();
-        Debug.Log(health);
+        else
+        {
+            if (OnEnemyHealthChanged != null) OnEnemyHealthChanged();
+            Debug.Log(health);
+        }
+       
     }
 
     public void Heal(int amount)

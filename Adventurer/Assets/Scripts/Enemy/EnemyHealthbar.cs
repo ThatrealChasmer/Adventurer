@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealthbar : MonoBehaviour
 {
     private EnemyStatistsics parent;
-    void Awake()
+    void Start()
     {
         parent = transform.parent.gameObject.GetComponent<EnemyStatistsics>();
         parent.OnEnemyHealthChanged += HealthChanged;

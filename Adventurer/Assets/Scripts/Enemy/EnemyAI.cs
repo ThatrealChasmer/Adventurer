@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void Act()
     {
+        connector.caster = so.enemy_name;
         int pick = (int)Random.Range(0, so.attacks.Count - 0.01f);
         connector.enemyAttack = so.attacks[pick];
         connector.targetType = so.attacks[pick].targetType;

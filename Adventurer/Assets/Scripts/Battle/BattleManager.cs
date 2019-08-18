@@ -16,6 +16,7 @@ public class BattleManager : MonoBehaviour
     public System.Type et;
 
     public TurnSystem turnSystem;
+    public MenuSwapper ms;
 
     public string targetType;
 
@@ -90,6 +91,6 @@ public class BattleManager : MonoBehaviour
             }
         }
         targets.Clear();
-        turnSystem.EndTurn();
+        ms.swapMenu("AfterAction");
     }
 }

@@ -38,6 +38,7 @@ public class MenuItem : MonoBehaviour
 
     public void OnUse()
     {
+        connector.caster = "Player";
         connector.skill = skill;
         connector.targetType = skill.targetType;
         selectionManager.GetComponent<SelectionManager>().selections = skill.targets;

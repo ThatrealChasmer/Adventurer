@@ -37,4 +37,16 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
+    public void DeselectAll()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach(GameObject enemy in enemies)
+        {
+            if(enemy.GetComponent<EnemyBattleController>().isSelected == true)
+            {
+                enemy.GetComponent<EnemyBattleController>().SelectDeselect();
+            }
+        }
+    }
 }

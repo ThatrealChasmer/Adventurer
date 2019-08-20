@@ -1,0 +1,14 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Inventory : ScriptableObject
+{
+    public List<InventoryItem> items;
+    
+    public class InventoryItem
+    {
+        ItemSO so;
+        int amount;
+    }
+}

@@ -18,6 +18,9 @@ public class BattleManager : MonoBehaviour
     public TurnSystem turnSystem;
     public MenuSwapper ms;
 
+    public GameObject menu;
+    public GameObject endBattle;
+
     public string targetType;
 
     private void Awake()
@@ -92,5 +95,15 @@ public class BattleManager : MonoBehaviour
         }
         targets.Clear();
         ms.swapMenu("AfterAction");
+    }
+
+    public void EndBattle(bool win)
+    {
+        if(win)
+        {
+            menu.SetActive(false);
+            endBattle.SetActive(true);
+            ms.currentMenu = endBattle.transform.GetChild(0).gameObject;
+        }
     }
 }

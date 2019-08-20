@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
         }
         TurnSystemReference.PlayerIndex = enemies.Count;
         TurnSystemReference.enemies = enemies;
-        TurnSystemReference.StartTurn();
+        //TurnSystemReference.StartTurn();
         // przyznawanie indexow
     }
 

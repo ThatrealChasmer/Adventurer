@@ -11,6 +11,7 @@ public class TurnSystem : MonoBehaviour
     public int PlayerIndex;
     public List<GameObject> enemies;
     public GameObject mainMenu;
+    public BattleManager bm;
 
     public void StartTurn()
     {
@@ -27,12 +28,20 @@ public class TurnSystem : MonoBehaviour
         if (index < enemies.Count) index++;
         else index = 0;
 
-        StartTurn();
+        if(enemies.Count <= 0)
+        {
+            bm.EndBattle(true);
+        }
+        else
+        {
+            StartTurn();
+        }
     }
 
     public void RemoveFromEnemies(GameObject enemy)
     {
         enemies.Remove(enemy);
         PlayerIndex--;
+        
     }
 }

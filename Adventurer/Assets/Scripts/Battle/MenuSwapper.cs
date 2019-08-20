@@ -14,6 +14,9 @@ public class MenuSwapper : MonoBehaviour
 
     public GameObject currentMenu;
     public GameObject previousMenu;
+
+    public GameObject loot;
+    public GameObject stats;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +53,13 @@ public class MenuSwapper : MonoBehaviour
                 break;  
         }
         currentMenu.SetActive(true);
+    }
+
+    public void SwapBattleEnd(GameObject menu)
+    {
+        currentMenu.SetActive(false);
+        menu.SetActive(true);
+        currentMenu = menu;
     }
 
     public void LoadScene(string scene)

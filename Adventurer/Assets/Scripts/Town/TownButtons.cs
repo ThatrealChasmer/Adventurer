@@ -17,7 +17,14 @@ public class TownButtons: MonoBehaviour
     {
         if(name == "Hall")
         {
-            SceneLoader.Load("PlayerCreation");
+            if(stats.playerName == "")
+            {
+                SceneLoader.Load("PlayerCreation");
+            }
+            else
+            {
+
+            }
         }
 
         if(name == "Battle" && stats.playerName != null)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e956d094952f34c96fbead72bf9ac7, type: 3}
   m_Name: PlayerStatistics
   m_EditorClassIdentifier: 
-  playerName: Chasmer
+  playerName: 
   strength: 3
   defense: 2
   perception: 2
@@ -20,7 +20,7 @@ MonoBehaviour:
   speed: 4
   luck: 3
   maxHealth: 215
-  currentHealth: -995
+  currentHealth: 150
   maxStamina: 50
   currentStamina: 50
   maxMana: 80

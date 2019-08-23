@@ -26,3 +26,8 @@ MonoBehaviour:
   attacks:
   - {fileID: 11400000, guid: 015971515609546408a8b7ab14113378, type: 2}
   - {fileID: 11400000, guid: f35b0091702851b41988fdba245e2d9e, type: 2}
+  attackChances: 
+  dropItems:
+  - {fileID: 11400000, guid: 9ca30efd0ea3d2f4a9c009431749d69e, type: 2}
+  - {fileID: 11400000, guid: 49317bb8154a8d049815badc973d7a40, type: 2}
+  dropChances: 280000000a000000

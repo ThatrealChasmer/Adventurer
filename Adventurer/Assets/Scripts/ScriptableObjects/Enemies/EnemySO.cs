@@ -21,4 +21,8 @@ public class EnemySO : ScriptableObject
     public float range;
 
     public List<EnemyAttackSO> attacks;
+    public int[] attackChances;
+
+    public List<ItemSO> dropItems;
+    public int[] dropChances;
 }

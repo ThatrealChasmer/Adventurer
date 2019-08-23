@@ -1236,6 +1236,7 @@ MonoBehaviour:
   enemiesSO:
   - {fileID: 11400000, guid: 21a05ea633c2c0a4082904cf3b0a1731, type: 2}
   - {fileID: 11400000, guid: c3c6b88719e59834fa7e723481640fe3, type: 2}
+  - {fileID: 11400000, guid: c3c6b88719e59834fa7e723481640fe3, type: 2}
   enemies: []
   enemyConstructor: {fileID: 3268213075518553050, guid: d63f2004998c08a438d4a0909fc702d0,
     type: 3}

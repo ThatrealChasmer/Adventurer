@@ -46,10 +46,15 @@ public class AfterAction : MonoBehaviour
             {
                 startingText = false;
                 turnSystem.StartTurn();
+                if (turnSystem.FirstTurn && turnSystem.enemies[0].name.Equals("Player"))
+                {
+                    Debug.Log("Runda Gracza");
+                    ms.swapMenu("Main");
+                }
             }
             else
             {
-                if (turnSystem.index == turnSystem.PlayerIndex - 1)
+                if ((turnSystem.index < turnSystem.enemies.Count - 1 && turnSystem.enemies[turnSystem.index+1].name.Equals("Player")) || (turnSystem.index == turnSystem.enemies.Count - 1 && turnSystem.enemies[0].name.Equals("Player")))
                 {
                     Debug.Log("Runda Gracza");
                     ms.swapMenu("Main");
@@ -57,6 +62,7 @@ public class AfterAction : MonoBehaviour
                 else
                 {
                     gameObject.SetActive(false);
+                    
                 }
                 turnSystem.EndTurn();
             }

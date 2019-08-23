@@ -80,8 +80,6 @@ public class BattleManager : MonoBehaviour
             enemyAttack = connector.enemyAttack;
             foreach (GameObject target in targets)
             {
-                Debug.Log(targets.Count);
-                Debug.Log(target.name);
                 target.GetComponent<Player>().stats.TakeDamage(enemyAttack.damage);
                 foreach (MethodInfo m in et.GetMethods())
                 {

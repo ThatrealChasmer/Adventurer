@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
+        SortList(enemiesSO);
         Spawn();
     }
 
@@ -30,10 +31,49 @@ public class Spawner : MonoBehaviour
             enemies[i].GetComponent<EnemyBattleController>().SetButton();
 
         }
-        TurnSystemReference.PlayerIndex = enemies.Count;
+        InsertPlayerToList();
         TurnSystemReference.enemies = enemies;
         //TurnSystemReference.StartTurn();
         // przyznawanie indexow
     }
 
+    private void SortList(List<EnemySO> list)
+    {
+        EnemySO tmp;
+        for (int i = 0; i < list.Count; i++)
+        {
+            for (int j = 0; j+1 < list.Count; j++)
+            {
+                if (list[j].speed < list[j + 1].speed)
+                {
+                    tmp = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = tmp;
+                }
+            }
+        }
+    }
+
+    private int InsertPlayerToList()
+    {
+        int speed = GameObject.Find("Player").GetComponent<Player>().stats.speed;
+        Debug.Log(speed);
+        bool inserted = false;
+        int i;
+        for (i = 0; i < enemies.Count; i++)
+        {
+            if (speed > enemies[i].GetComponent<EnemyStatistsics>().so.speed)
+            {
+                enemies.Insert(i, GameObject.Find("Player"));
+                inserted = true;
+                break;
+            }
+        }
+        if (!inserted)
+        {
+            enemies.Add(GameObject.Find("Player"));
+            return i + 1;
+        }
+        return i;
+    }
 }

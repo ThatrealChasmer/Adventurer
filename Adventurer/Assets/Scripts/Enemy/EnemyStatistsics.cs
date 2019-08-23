@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class EnemyStatistsics : MonoBehaviour
 {
     public delegate void EnemyHealthCallback();
+    public delegate void EnemyDeathCallback(string name);
     public event EnemyHealthCallback OnEnemyHealthChanged;
-    public event EnemyHealthCallback EnemyDeath;
+    public event EnemyDeathCallback EnemyDeath;
 
     public GameObject sprite;
     public GameObject nameText;
@@ -72,7 +73,8 @@ public class EnemyStatistsics : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            if (EnemyDeath != null) EnemyDeath();
+            if (EnemyDeath != null) EnemyDeath(enemy_name);
+            Debug.Log("aaa");
             GameObject.Find("BattleManager").GetComponent<TurnSystem>().RemoveFromEnemies(gameObject);
             gameObject.SetActive(false);
             if (OnEnemyHealthChanged != null) OnEnemyHealthChanged();

@@ -26,12 +26,10 @@ public class Inventory : ScriptableObject
     {
         if(otherItems.Where(obj => obj.so.item_name == item.item_name).FirstOrDefault() == null)
         {
-            Debug.Log("Added new item!!!");
             otherItems.Add(new InventoryOtherItem(item, amount));
         }
         else
         {
-            Debug.Log("Added item!!!");
             otherItems.Where(obj => obj.so.item_name == item.item_name).FirstOrDefault().amount += amount;
         }
     }

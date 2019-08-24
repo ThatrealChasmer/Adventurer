@@ -7,6 +7,7 @@ public class BattleManager : MonoBehaviour
 {
     public List<GameObject> targets = new List<GameObject>();
 
+    public BattleInfoSO battleInfo;
     public BattleManagerConnector connector;
     public SkillSO skill;
     public SkillEffects skillEffects;
@@ -23,12 +24,19 @@ public class BattleManager : MonoBehaviour
 
     public string targetType;
 
+    public PlayerStatistics playerStats;
+
     private void Awake()
     {
         skillEffects = GetComponent<SkillEffects>();
         pt = skillEffects.GetType();
         eaEffects = GetComponent<EnemyAttackEffects>();
         et = eaEffects.GetType();
+        playerStats.GetStats();
+        for(int i = 0; i < playerStats.statArray.Length; i++)
+        {
+            battleInfo.oldStats[i] = playerStats.statArray[i];
+        }
     }
 
     public void AddTarget(GameObject target)
@@ -59,6 +67,10 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             }
+            for(int i = 0; i < battleInfo.statChange.Length; i++)
+            {
+                battleInfo.statChange[i] += connector.skill.statChange[i];
+            }
         }
         else if(targetType == "Self")
         {
@@ -73,6 +85,10 @@ public class BattleManager : MonoBehaviour
                         skillEffects.Invoke(skill.name, 0);
                     }
                 }
+            }
+            for (int i = 0; i < battleInfo.statChange.Length; i++)
+            {
+                battleInfo.statChange[i] += connector.skill.statChange[i];
             }
         }
         else if(targetType == "Player")
@@ -99,6 +115,7 @@ public class BattleManager : MonoBehaviour
     {
         if(win)
         {
+            playerStats.ChangeStats(battleInfo.statChange);
             menu.SetActive(false);
             endBattle.SetActive(true);
             ms.currentMenu = endBattle.transform.GetChild(0).gameObject;

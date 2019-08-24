@@ -20,8 +20,9 @@ MonoBehaviour:
   speed: 4
   luck: 3
   maxHealth: 215
-  currentHealth: 150
+  currentHealth: 215
   maxStamina: 50
   currentStamina: 50
   maxMana: 80
   currentMana: 80
+  statArray: 030000000200000002000000020000000400000003000000

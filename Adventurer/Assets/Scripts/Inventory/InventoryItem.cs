@@ -13,17 +13,6 @@ public class InventoryItem : MonoBehaviour
     public Text itemName;
     public Text itemType;
     public Text amount;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Fill(Inventory.InventoryOtherItem item)
     {

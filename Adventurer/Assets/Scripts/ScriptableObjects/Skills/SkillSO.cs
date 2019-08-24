@@ -12,4 +12,6 @@ public class SkillSO : ScriptableObject
     public int targets;
     public int damage;
     public int staminaUsage;
+
+    public int[] statChange = { 0, 0, 0, 0, 0, 0 };
 }

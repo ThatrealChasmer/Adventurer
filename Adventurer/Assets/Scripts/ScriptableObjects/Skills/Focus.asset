@@ -19,3 +19,4 @@ MonoBehaviour:
   targets: 0
   damage: 0
   staminaUsage: 0
+  statChange: 000000000300000001000000000000000000000000000000

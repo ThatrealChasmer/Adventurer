@@ -23,6 +23,8 @@ public class PlayerStatistics : ScriptableObject
     public int maxMana;
     public int currentMana;
 
+    public int[] statArray = { 0, 0, 0, 0, 0, 0 };
+
     public void CalculateStats()
     {
         maxHealth = 200 + (5 * strength);
@@ -33,6 +35,16 @@ public class PlayerStatistics : ScriptableObject
 
         maxMana = 80 + (intelligence / 5);
         currentMana = maxMana;
+    }
+
+    public void GetStats()
+    {
+        statArray[0] = strength;
+        statArray[1] = defense;
+        statArray[2] = perception;
+        statArray[3] = intelligence;
+        statArray[4] = speed;
+        statArray[5] = luck;
     }
 
     public void ChangeStats(int[] amounts)

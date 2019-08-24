@@ -30,7 +30,6 @@ public class DropItemButton : MonoBehaviour
     {
         LootMenu lm = transform.parent.GetComponent<LootMenu>();
         inv.AddItem(so, itemAmount);
-        Debug.Log(inv.otherItems.Count);
         info.items.Remove(so);
         if(lm.currentIndex + 4 >= lm.items.Count)
         {

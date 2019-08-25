@@ -9,4 +9,5 @@ public class PlayerData : ScriptableObject
 
     public List<SkillSO> skills;
     public List<ConsumableRecipeSO> recipes;
+    public List<QuestSO> quests;
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c057831b24bdf64fa24821c2c506217, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  money: 0
+  money: -25
   skills:
   - {fileID: 11400000, guid: 61b8c9cbc8cb5d84f9b8cb9b6f98ae2d, type: 2}
   - {fileID: 11400000, guid: 9579b739843fd8342999363d390c8f6c, type: 2}
@@ -21,3 +21,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0943f52f95b2334fbc7129cb42d917f, type: 2}
   recipes:
   - {fileID: 11400000, guid: abc92f60e2569b14d8796fd62bded8fc, type: 2}
+  quests:
+  - {fileID: 11400000, guid: 0e729b919d163fc48a28307913c51e70, type: 2}

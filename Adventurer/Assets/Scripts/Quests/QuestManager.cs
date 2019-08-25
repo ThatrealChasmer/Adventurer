@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     private List<GameObject> enemies;
-    public List<QuestSO> questList;
+    public PlayerData PlayerData;
 
     public void Subscribe()
     {
@@ -17,9 +17,9 @@ public class QuestManager : MonoBehaviour
     }
     void Check(string name)
     {
-        for(int i = 0; i< questList.Count; i++)
+        for(int i = 0; i< PlayerData.quests.Count; i++)
         {
-            questList[i].Check(name);
+            PlayerData.quests[i].Check(name);
         }
     }
 }

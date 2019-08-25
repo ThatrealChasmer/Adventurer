@@ -9,12 +9,12 @@ public class CompleteQuests : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player");
         QuestManager questManager = player.GetComponent<QuestManager>();
-        for (int i = questManager.questList.Count - 1; i >= 0; i--)
+        for (int i = questManager.PlayerData.quests.Count - 1; i >= 0; i--)
         {
-            if (questManager.questList[i].completion)
+            if (questManager.PlayerData.quests[i].completion)
             {
-                playerData.money += questManager.questList[i].reward;
-                questManager.questList.Remove(questManager.questList[i]);
+                playerData.money += questManager.PlayerData.quests[i].reward;
+                questManager.PlayerData.quests.Remove(questManager.PlayerData.quests[i]);
             }
         }
     }

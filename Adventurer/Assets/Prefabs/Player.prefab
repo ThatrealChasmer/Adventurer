@@ -58,4 +58,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df8bd3ceced2d04783a508c9d153304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questList: []
+  PlayerData: {fileID: 11400000, guid: b5fc654c4537ad74db6d01af8852868e, type: 2}

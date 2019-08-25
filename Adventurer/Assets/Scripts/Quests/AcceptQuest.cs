@@ -8,6 +8,6 @@ public class AcceptQuest : MonoBehaviour
 
     public void Accept()
     {
-        GameObject.Find("Player").GetComponent<QuestManager>().questList.Add(quest);
+        GameObject.Find("Player").GetComponent<QuestManager>().PlayerData.quests.Add(quest);
     }
 }

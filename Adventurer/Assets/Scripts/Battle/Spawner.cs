@@ -33,6 +33,7 @@ public class Spawner : MonoBehaviour
         }
         InsertPlayerToList();
         TurnSystemReference.enemies = enemies;
+        GameObject.Find("Player").GetComponent<QuestManager>().Subscribe();
         //TurnSystemReference.StartTurn();
         // przyznawanie indexow
     }
@@ -57,7 +58,6 @@ public class Spawner : MonoBehaviour
     private int InsertPlayerToList()
     {
         int speed = GameObject.Find("Player").GetComponent<Player>().stats.speed;
-        Debug.Log(speed);
         bool inserted = false;
         int i;
         for (i = 0; i < enemies.Count; i++)

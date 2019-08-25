@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3681971747945781391}
   - component: {fileID: 3681971747945781388}
+  - component: {fileID: 4524433616907916165}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -45,3 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b0a5139c3e079ab4d924ed0a6bdd964f, type: 2}
   playerName: 
+--- !u!114 &4524433616907916165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681971747945781390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df8bd3ceced2d04783a508c9d153304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questList: []

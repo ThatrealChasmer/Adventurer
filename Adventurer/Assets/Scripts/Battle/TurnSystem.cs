@@ -15,14 +15,12 @@ public class TurnSystem : MonoBehaviour
 
     public void StartTurn()
     {
-        Debug.Log(enemies[index].name);
         if (!enemies[index].name.Equals("Player")) enemies[index].GetComponent<EnemyAI>().Act();
 
     }
     public void EndTurn()
     {
         FirstTurn = false;
-        Debug.Log("koniectury");
         if (index+1 < enemies.Count) index++;
         else index = 0;
 

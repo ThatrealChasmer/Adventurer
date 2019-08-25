@@ -7,6 +7,7 @@ using System.Linq;
 public class Inventory : ScriptableObject
 {
     public List<InventoryOtherItem> otherItems = new List<InventoryOtherItem>();
+    public List<InventoryConsumableItem> consumables = new List<InventoryConsumableItem>();
     
     
     public class InventoryOtherItem
@@ -16,6 +17,18 @@ public class Inventory : ScriptableObject
 
 
         public InventoryOtherItem(ItemSO so, int amount)
+        {
+            this.so = so;
+            this.amount = amount;
+        }
+    }
+
+    public class InventoryConsumableItem
+    {
+        public ConsumableSO so;
+        public int amount;
+        
+        public InventoryConsumableItem(ConsumableSO so, int amount)
         {
             this.so = so;
             this.amount = amount;
@@ -34,6 +47,18 @@ public class Inventory : ScriptableObject
         }
     }
 
+    public void AddItem(ConsumableSO item, int amount)
+    {
+        if (consumables.Where(obj => obj.so.itemName == item.itemName).FirstOrDefault() == null)
+        {
+            consumables.Add(new InventoryConsumableItem(item, amount));
+        }
+        else
+        {
+            consumables.Where(obj => obj.so.itemName == item.itemName).FirstOrDefault().amount += amount;
+        }
+    }
+
     public void RemoveItem(ItemSO item, int amount)
     {
         InventoryOtherItem toRemove = otherItems.Where(obj => obj.so.item_name == item.item_name).FirstOrDefault();
@@ -41,6 +66,16 @@ public class Inventory : ScriptableObject
         if(toRemove.amount <= 0)
         {
             otherItems.Remove(toRemove);
+        }
+    }
+
+    public void RemoveItem(ConsumableSO item, int amount)
+    {
+        InventoryConsumableItem toRemove = consumables.Where(obj => obj.so.itemName == item.itemName).FirstOrDefault();
+        toRemove.amount -= amount;
+        if (toRemove.amount <= 0)
+        {
+            consumables.Remove(toRemove);
         }
     }
 

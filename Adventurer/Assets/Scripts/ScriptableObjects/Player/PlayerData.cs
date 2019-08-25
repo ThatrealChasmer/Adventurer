@@ -8,4 +8,5 @@ public class PlayerData : ScriptableObject
     public int money;
 
     public List<SkillSO> skills;
+    public List<ConsumableRecipeSO> recipes;
 }

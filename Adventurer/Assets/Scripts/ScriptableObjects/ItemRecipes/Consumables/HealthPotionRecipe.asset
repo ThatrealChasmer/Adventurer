@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff1fdc201dcdb94cb512df7a0f9a8c4, type: 3}
+  m_Name: HealthPotionRecipe
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 987a9b6dd5ae0c24095f10b772f8f7c3, type: 2}
+  materials:
+  - {fileID: 11400000, guid: f2e324c4d6a70854f968394da807bac3, type: 2}
+  ingredients:
+  - {fileID: 11400000, guid: b9f69ed9294822c4c80c8c9e971a9a65, type: 2}
+  mAmounts: 01000000
+  iAmounts: 01000000

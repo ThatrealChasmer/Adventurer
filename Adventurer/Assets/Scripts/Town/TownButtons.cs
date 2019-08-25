@@ -26,8 +26,11 @@ public class TownButtons: MonoBehaviour
 
             }
         }
-
-        if(name == "Battle" && stats.playerName != null)
+        else if(name == "Battle" && stats.playerName != null)
+        {
+            SceneLoader.Load(name);
+        }
+        else
         {
             SceneLoader.Load(name);
         }

@@ -74,7 +74,6 @@ public class EnemyStatistsics : MonoBehaviour
         {
             health = 0;
             if (EnemyDeath != null) EnemyDeath(enemy_name);
-            Debug.Log("aaa");
             GameObject.Find("BattleManager").GetComponent<TurnSystem>().RemoveFromEnemies(gameObject);
             gameObject.SetActive(false);
             if (OnEnemyHealthChanged != null) OnEnemyHealthChanged();

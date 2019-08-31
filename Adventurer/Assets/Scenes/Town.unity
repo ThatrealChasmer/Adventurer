@@ -1153,7 +1153,12 @@ MonoBehaviour:
     type: 3}
   inv: {fileID: 11400000, guid: 94eea21bebb456947bcbc4a951337c33, type: 2}
   downArrow: {fileID: 208458275}
+  perPage: 0
+  startingPoint: {x: 0, y: 0, z: 0}
+  shift: 0
   currentIndex: 0
+  listType: 
+  mouse: 0
 --- !u!1 &1032484702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,6 +1399,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a263e1feb84bed04c8ee6dbfc433d3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inv: {fileID: 11400000, guid: 94eea21bebb456947bcbc4a951337c33, type: 2}
+  otherItems:
+  - {fileID: 11400000, guid: ffd66854450053e4ca26b621ddab6a64, type: 2}
+  - {fileID: 11400000, guid: ffd66854450053e4ca26b621ddab6a64, type: 2}
+  - {fileID: 11400000, guid: f2e324c4d6a70854f968394da807bac3, type: 2}
+  - {fileID: 11400000, guid: f2e324c4d6a70854f968394da807bac3, type: 2}
+  - {fileID: 11400000, guid: f2e324c4d6a70854f968394da807bac3, type: 2}
+  - {fileID: 11400000, guid: 9ca30efd0ea3d2f4a9c009431749d69e, type: 2}
+  - {fileID: 11400000, guid: 49317bb8154a8d049815badc973d7a40, type: 2}
+  - {fileID: 11400000, guid: 16bb5bb0ced793a499fe1adc951617f8, type: 2}
+  consumables:
+  - {fileID: 11400000, guid: b9f69ed9294822c4c80c8c9e971a9a65, type: 2}
+  - {fileID: 11400000, guid: b9f69ed9294822c4c80c8c9e971a9a65, type: 2}
+  - {fileID: 11400000, guid: b9f69ed9294822c4c80c8c9e971a9a65, type: 2}
   stats: {fileID: 11400000, guid: b0a5139c3e079ab4d924ed0a6bdd964f, type: 2}
   nameText: {fileID: 1664834918}
 --- !u!4 &1352186223

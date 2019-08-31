@@ -5,12 +5,27 @@ using UnityEngine.UI;
 
 public class TownButtons: MonoBehaviour
 {
+    public Inventory inv;
+
+    public List<ItemSO> otherItems;
+    public List<ConsumableSO> consumables;
+
     public PlayerStatistics stats;
     public Text nameText;
 
     private void Start()
     {
         nameText.text = stats.playerName;
+
+        foreach(ItemSO item in otherItems)
+        {
+            inv.AddItem(item, 1);
+        }
+
+        foreach(ConsumableSO item in consumables)
+        {
+            inv.AddItem(item, 1);
+        }
     }
 
     public void LoadScene(string name)

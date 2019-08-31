@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class InventoryItem : MonoBehaviour
 {
     public bool isSelected;
-    public ItemSO so;
+    public ItemSO otherSO;
+    public ConsumableSO consumableSO;
     public int itemAmount;
 
     public Image image;
@@ -16,10 +17,20 @@ public class InventoryItem : MonoBehaviour
 
     public void Fill(Inventory.InventoryOtherItem item)
     {
-        so = item.so;
+        otherSO = item.so;
         itemAmount = item.amount;
         image.sprite = item.so.icon;
         itemName.text = item.so.item_name;
+        itemType.text = item.so.type.ToString();
+        amount.text = itemAmount.ToString();
+    }
+
+    public void Fill(Inventory.InventoryConsumableItem item)
+    {
+        consumableSO = item.so;
+        itemAmount = item.amount;
+        image.sprite = item.so.icon;
+        itemName.text = item.so.itemName;
         itemType.text = item.so.type.ToString();
         amount.text = itemAmount.ToString();
     }
@@ -29,7 +40,7 @@ public class InventoryItem : MonoBehaviour
         GameObject descBox = transform.parent.GetComponent<ShowInventory>().descBox;
         if(isSelected == false)
         {
-            descBox.GetComponent<DescBox>().Fill(so);
+            descBox.GetComponent<DescBox>().Fill(otherSO);
             descBox.SetActive(true);
             isSelected = true;
         }

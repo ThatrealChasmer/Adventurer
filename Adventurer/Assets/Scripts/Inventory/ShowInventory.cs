@@ -52,7 +52,7 @@ public class ShowInventory : MonoBehaviour
     {
         if(mouseHovering())
         {
-            if (Input.mouseScrollDelta.y < 0 && currentIndex + 4 < inv.otherItems.Count)
+            if (Input.mouseScrollDelta.y < 0 && currentIndex + perPage < inv.otherItems.Count)
             {
                 currentIndex += 1;
                 ChangeList(listType);
@@ -75,7 +75,7 @@ public class ShowInventory : MonoBehaviour
             }
         }
 
-        if (inv.otherItems.Count > index + 4)
+        if (inv.otherItems.Count > index + perPage)
         {
             downArrow.SetActive(true);
         }
@@ -90,6 +90,7 @@ public class ShowInventory : MonoBehaviour
         for (int i = 0; i < toRender.Count; i++)
         {
             GameObject item = Instantiate(itemPrefab, gameObject.transform.position + startingPoint + new Vector3(0,-(shift * i), 0), Quaternion.identity, transform);
+            item.GetComponent<InventoryItem>().Fill(toRender[i]);
         }
     }
 
@@ -103,7 +104,7 @@ public class ShowInventory : MonoBehaviour
             }
         }
 
-        if (inv.consumables.Count > index + 4)
+        if (inv.consumables.Count > index + perPage)
         {
             downArrow.SetActive(true);
         }
@@ -118,6 +119,7 @@ public class ShowInventory : MonoBehaviour
         for (int i = 0; i < toRender.Count; i++)
         {
             GameObject item = Instantiate(itemPrefab, gameObject.transform.position + new Vector3(0, 85 - (85 * i), 0), Quaternion.identity, transform);
+            item.GetComponent<InventoryItem>().Fill(toRender[i]);
         }
     }
 
